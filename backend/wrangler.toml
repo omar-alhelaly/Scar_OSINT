@@ -1,0 +1,19 @@
+name = "osint-engine"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "osint-db"
+database_id = "REPLACE_WITH_YOUR_D1_ID"
+
+[[queues.producers]]
+binding = "SCAN_QUEUE"
+queue = "osint-scan-queue"
+
+[[queues.consumers]]
+queue = "osint-scan-queue"
+max_batch_size = 5
+max_batch_timeout = 2
+max_retries = 3
+max_concurrency = 5

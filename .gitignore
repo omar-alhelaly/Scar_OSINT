@@ -1,0 +1,27 @@
+# Environment variables and secrets
+.env
+.env.*
+**/.env
+**/.env.*
+
+.dev.vars
+.dev.vars.*
+**/.dev.vars
+**/.dev.vars.*
+
+secrets/
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Wrangler local files
+.wrangler/
+**/.wrangler/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

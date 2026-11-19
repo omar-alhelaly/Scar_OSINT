@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b10" />
+    <title>HIDDEN OSINT | Subdomain Utility</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <div class="brand"><span class="brand-dot"></span>HIDDEN OSINT</div>
+        <p class="eyebrow">PASSIVE RECON / 01</p>
+        <h1>Find every subdomain.</h1>
+        <p class="lead">
+          Enter a domain and collect its subdomains from public sources, directly from your browser.
+        </p>
+      </header>
+
+      <section class="panel">
+        <h2 class="panel-title">01 / TARGET</h2>
+        <div class="row">
+          <div class="field grow">
+            <label for="domain">ROOT DOMAIN</label>
+            <input id="domain" type="text" placeholder="example.com" autocomplete="off" spellcheck="false" />
+          </div>
+          <button id="scanBtn" class="btn primary" type="button">START SCAN</button>
+        </div>
+        <div id="statusLine" class="status">No scan running</div>
+        <div class="progress"><div id="bar" class="bar"></div></div>
+        <div id="pct" class="pct">0%</div>
+        <p class="note">
+          <strong>Important:</strong> this tool is passive. It only queries third-party public sources and
+          never sends traffic to the target. Use it on domains you own or are authorized to assess.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">02 / SOURCES</h2>
+        <div id="sources" class="sources"></div>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">03 / RESULTS</h2>
+        <div class="stats">
+          <div class="stat"><span class="stat-label">SUBDOMAINS</span><span id="statTotal" class="stat-value">0</span></div>
+          <div class="stat"><span class="stat-label">SOURCES DONE</span><span id="statDone" class="stat-value">0/0</span></div>
+          <div class="stat"><span class="stat-label">FAILED</span><span id="statFailed" class="stat-value">0</span></div>
+        </div>
+        <div class="row">
+          <div class="field grow">
+            <label for="filter">FILTER</label>
+            <input id="filter" type="text" placeholder="type to filter, e.g. api or crtsh" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+        <div class="row actions">
+          <button id="copyBtn" class="btn" type="button" disabled>COPY LIST</button>
+          <button id="csvBtn" class="btn" type="button" disabled>EXPORT CSV</button>
+          <button id="jsonBtn" class="btn" type="button" disabled>EXPORT JSON</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th class="col-n">#</th><th>SUBDOMAIN</th><th>FOUND BY</th></tr>
+            </thead>
+            <tbody id="rows"></tbody>
+          </table>
+          <p id="empty" class="empty">No results yet.</p>
+        </div>
+        <p class="hint">Copy and export use the list currently shown, so they respect the filter.</p>
+      </section>
+
+      <section class="panel">
+        <h2 class="panel-title">04 / LOG</h2>
+        <pre id="log" class="log"></pre>
+      </section>
+
+      <footer class="footer">HIDDEN OSINT · PASSIVE SUBDOMAIN ENUMERATION · CLOUDFLARE</footer>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
